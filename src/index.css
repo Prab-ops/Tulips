@@ -1,0 +1,15 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html,body{overflow-x:hidden;scroll-behavior:smooth;background:#fbf5ea;color:#4a3340;font-family:'Nunito Sans',sans-serif;-webkit-tap-highlight-color:transparent}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;mix-blend-mode:multiply;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.5'/></svg>")}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0)}100%{transform:translate3d(60px,110vh,0) rotate(540deg)}}
+@keyframes flutter{0%{transform:translate(0,0)}25%{transform:translate(30vw,-8vh)}50%{transform:translate(55vw,6vh)}75%{transform:translate(20vw,-4vh)}100%{transform:translate(0,0)}}
+@keyframes wing{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.35)}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 4px #fff7c2)}50%{filter:drop-shadow(0 0 14px #ffe98a)}}
+.sway{transform-origin:50% 100%;animation:sway 4s ease-in-out infinite}
+.glow{animation:glow 2s ease-in-out infinite}
+.petal{position:absolute;top:0;border-radius:80% 0 80% 0;animation:fall linear infinite;will-change:transform}
+.wing{animation:wing .3s ease-in-out infinite}
+.garden{touch-action:none;user-select:none;-webkit-user-select:none}
+@media (prefers-reduced-motion:reduce){.sway,.petal,.wing{animation:none}}
